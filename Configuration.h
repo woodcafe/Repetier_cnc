@@ -77,7 +77,7 @@
 #define DRIVE_SYSTEM 0
 #define XAXIS_STEPS_PER_MM 80
 #define YAXIS_STEPS_PER_MM 80
-#define ZAXIS_STEPS_PER_MM 80
+#define ZAXIS_STEPS_PER_MM 160
 #define EXTRUDER_FAN_COOL_TEMP 50
 #define PDM_FOR_EXTRUDER 0
 #define PDM_FOR_COOLER 0
@@ -190,7 +190,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define SUPPORT_CNC 1
 #define CNC_WAIT_ON_ENABLE 300
 #define CNC_WAIT_ON_DISABLE 0
-#define CNC_ENABLE_PIN -1
+#define CNC_ENABLE_PIN HEATER_2_PIN
 #define CNC_ENABLE_WITH 1
 #define CNC_DIRECTION_PIN -1
 #define CNC_DIRECTION_CW 1
@@ -207,8 +207,8 @@ It also can add a delay to wait for spindle to run on full speed.
 #define ENDSTOP_Y_MIN_INVERTING true
 #define MIN_HARDWARE_ENDSTOP_Y true
 #define ENDSTOP_PULLUP_Z_MIN true
-#define ENDSTOP_Z_MIN_INVERTING true
-#define MIN_HARDWARE_ENDSTOP_Z true
+#define ENDSTOP_Z_MIN_INVERTING false
+#define MIN_HARDWARE_ENDSTOP_Z false
 #define ENDSTOP_PULLUP_X_MAX true
 #define ENDSTOP_X_MAX_INVERTING false
 #define MAX_HARDWARE_ENDSTOP_X false
@@ -216,16 +216,16 @@ It also can add a delay to wait for spindle to run on full speed.
 #define ENDSTOP_Y_MAX_INVERTING false
 #define MAX_HARDWARE_ENDSTOP_Y false
 #define ENDSTOP_PULLUP_Z_MAX true
-#define ENDSTOP_Z_MAX_INVERTING false
-#define MAX_HARDWARE_ENDSTOP_Z false
+#define ENDSTOP_Z_MAX_INVERTING true
+#define MAX_HARDWARE_ENDSTOP_Z true
 #define max_software_endstop_r true
 
 #define min_software_endstop_x false
 #define min_software_endstop_y false
-#define min_software_endstop_z false
+#define min_software_endstop_z true
 #define max_software_endstop_x true
 #define max_software_endstop_y true
-#define max_software_endstop_z true
+#define max_software_endstop_z false
 #define ENDSTOP_X_BACK_MOVE 5
 #define ENDSTOP_Y_BACK_MOVE 5
 #define ENDSTOP_Z_BACK_MOVE 2
@@ -234,7 +234,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 3
 #define ENDSTOP_X_BACK_ON_HOME 1
 #define ENDSTOP_Y_BACK_ON_HOME 1
-#define ENDSTOP_Z_BACK_ON_HOME 0
+#define ENDSTOP_Z_BACK_ON_HOME 1
 #define ALWAYS_CHECK_ENDSTOPS 1
 
 // ################# XYZ movements ###################
@@ -251,10 +251,10 @@ It also can add a delay to wait for spindle to run on full speed.
 #define INVERT_Z_DIR 1
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
-#define Z_HOME_DIR -1
-#define X_MAX_LENGTH 1200
-#define Y_MAX_LENGTH 200
-#define Z_MAX_LENGTH 120
+#define Z_HOME_DIR 1
+#define X_MAX_LENGTH 1270
+#define Y_MAX_LENGTH 850
+#define Z_MAX_LENGTH 160
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
@@ -289,11 +289,11 @@ It also can add a delay to wait for spindle to run on full speed.
 #define STEPPER_INACTIVE_TIME 360L
 #define MAX_INACTIVE_TIME 0L
 #define MAX_FEEDRATE_X 200
-#define MAX_FEEDRATE_Y 200
-#define MAX_FEEDRATE_Z 2
+#define MAX_FEEDRATE_Y 800
+#define MAX_FEEDRATE_Z 800
 #define HOMING_FEEDRATE_X 40
 #define HOMING_FEEDRATE_Y 40
-#define HOMING_FEEDRATE_Z 2
+#define HOMING_FEEDRATE_Z 400
 #define HOMING_ORDER HOME_ORDER_ZXY
 #define ZHOME_MIN_TEMPERATURE 0
 #define ZHOME_HEAT_ALL 1
@@ -312,10 +312,10 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DOUBLE_STEP_DELAY 0 // time in microseconds
 #define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_X 1000
 #define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Y 1000
-#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Z 100
+#define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Z 1000
 #define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_X 1000
 #define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Y 1000
-#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Z 100
+#define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Z 1000
 #define INTERPOLATE_ACCELERATION_WITH_Z 0
 #define ACCELERATION_FACTOR_TOP 100
 #define MAX_JERK 20
@@ -511,11 +511,11 @@ Values must be in range 1..255
     "bluetoothBaudrate": 115200,
     "xStepsPerMM": 80,
     "yStepsPerMM": 80,
-    "zStepsPerMM": 80,
+    "zStepsPerMM": 160,
     "xInvert": 0,
     "xInvertEnable": 0,
     "eepromMode": 1,
-    "yInvert": 0,
+    "yInvert": "0",
     "yInvertEnable": 0,
     "zInvert": "1",
     "zInvertEnable": 0,
@@ -524,24 +524,24 @@ Values must be in range 1..255
     "uiController": 0,
     "xMinEndstop": 1,
     "yMinEndstop": 1,
-    "zMinEndstop": 1,
+    "zMinEndstop": 0,
     "xMaxEndstop": 0,
     "yMaxEndstop": 0,
-    "zMaxEndstop": 0,
+    "zMaxEndstop": 1,
     "motherboard": 33,
     "driveSystem": 0,
     "xMaxSpeed": 200,
     "xHomingSpeed": 40,
     "xTravelAcceleration": 1000,
     "xPrintAcceleration": 1000,
-    "yMaxSpeed": 200,
+    "yMaxSpeed": 800,
     "yHomingSpeed": 40,
     "yTravelAcceleration": 1000,
     "yPrintAcceleration": 1000,
-    "zMaxSpeed": 2,
-    "zHomingSpeed": 2,
-    "zTravelAcceleration": 100,
-    "zPrintAcceleration": 100,
+    "zMaxSpeed": 800,
+    "zHomingSpeed": 400,
+    "zTravelAcceleration": 1000,
+    "zPrintAcceleration": 1000,
     "xMotor": {
         "name": "X motor",
         "step": "ORIG_X_STEP_PIN",
@@ -569,9 +569,9 @@ Values must be in range 1..255
     "xMinPos": 0,
     "yMinPos": 0,
     "zMinPos": 0,
-    "xLength": 1200,
-    "yLength": 200,
-    "zLength": 120,
+    "xLength": 1270,
+    "yLength": 850,
+    "zLength": 160,
     "alwaysCheckEndstops": "1",
     "disableX": "0",
     "disableY": "0",
@@ -579,10 +579,10 @@ Values must be in range 1..255
     "disableE": "0",
     "xHomeDir": "-1",
     "yHomeDir": "-1",
-    "zHomeDir": "-1",
+    "zHomeDir": "1",
     "xEndstopBack": 1,
     "yEndstopBack": 1,
-    "zEndstopBack": 0,
+    "zEndstopBack": 1,
     "deltaSegmentsPerSecondPrint": 180,
     "deltaSegmentsPerSecondTravel": 70,
     "deltaDiagonalRod": 445,
@@ -964,10 +964,10 @@ Values must be in range 1..255
     "laserOnHigh": "1",
     "defaultPrinterMode": 2,
     "supportCNC": "1",
-    "cncWaitOnEnable": 300,
+    "cncWaitOnEnable": 3000,
     "cncWaitOnDisable": 0,
-    "cncEnablePin": -1,
-    "cncEnableWith": "1",
+    "cncEnablePin": "HEATER_2_PIN",
+    "cncEnableWith": "0",
     "cncDirectionPin": -1,
     "cncDirectionCW": "1",
     "startupGCode": "",
@@ -1004,3 +1004,4 @@ Values must be in range 1..255
 ========== End configuration string ==========
 
 */
+
