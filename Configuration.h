@@ -188,10 +188,10 @@ It also can add a delay to wait for spindle to run on full speed.
 */
 
 #define SUPPORT_CNC 1
-#define CNC_WAIT_ON_ENABLE 300
+#define CNC_WAIT_ON_ENABLE 3000
 #define CNC_WAIT_ON_DISABLE 0
 #define CNC_ENABLE_PIN HEATER_2_PIN
-#define CNC_ENABLE_WITH 1
+#define CNC_ENABLE_WITH 0
 #define CNC_DIRECTION_PIN -1
 #define CNC_DIRECTION_CW 1
 
@@ -325,7 +325,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define LOW_TICKS_PER_MOVE 250000
 #define EXTRUDER_SWITCH_XY_SPEED 100
 #define DUAL_X_AXIS 0
-#define FEATURE_TWO_XSTEPPER 0
+#define FEATURE_TWO_XSTEPPER 1
 #define X2_STEP_PIN   ORIG_E1_STEP_PIN
 #define X2_DIR_PIN    ORIG_E1_DIR_PIN
 #define X2_ENABLE_PIN ORIG_E1_ENABLE_PIN
@@ -620,7 +620,7 @@ Values must be in range 1..255
     "useAdvance": "0",
     "useQuadraticAdvance": "0",
     "powerInverting": 0,
-    "mirrorX": 0,
+    "mirrorX": "1",
     "mirrorXMotor": {
         "name": "Extruder 1",
         "step": "ORIG_E1_STEP_PIN",
